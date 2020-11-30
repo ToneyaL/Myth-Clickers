@@ -1,0 +1,777 @@
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/*amatic typography used for body content unless specified otherwise*/
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+.mythclickers-game{
+    background-color: orangered;
+}
+
+/*customising heading and paragraph typography*/
+h1{
+    font-size: 560%;
+    font-weight: 580;
+}
+
+h2{
+    font-size: 230%;
+    font-weight: 10;
+    padding: 70px 0 ;
+}
+
+h3{
+    font-size: 150%;
+    font-weight: 10;
+}
+
+h4{
+    font-size: 21px;
+    font-weight: 30;
+    color: white;
+}
+
+h5{
+    font-size:230%;
+}
+
+h6{
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h7{
+    font-size: 21px;
+    font-weight: 30;
+    color: red;
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/*NAV BAR STYLES*/
+.logo{
+    background-image: url(img/Logo.png);
+    float:left;
+    min-height: 50px; 
+/*    min-width: 50px;*/
+    background-repeat: no-repeat;
+}
+
+/*
+.topnav{
+    background-color:slategrey; 
+    height: 50px;
+    min-width: 100%;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+}
+*/
+/*positions header*/
+.container{
+    position:relative;
+    top:0;
+    margin:10px;
+    width:100%;
+    
+}
+/*positions nav bar*/
+.topnav a{
+    float: right;
+    color:white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration:none;
+    font-size: relative;
+    margin-right: 25px;
+    margin-top: -5px;
+}
+/*changes tab colour when mouse hovers over*/
+.topnav a:hover{
+    background-color:orangered;
+    color:white;
+}
+/*changes tab colour when currently being viewed*/
+.topnav a.active{
+    color: black;
+    background-color: lightgrey;
+}
+
+.page-header{
+    z-index: 99;
+    background-color: dimgrey; 
+    height: 50px;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+/*END NAV BAR STYLES*/
+
+/*FOOTER STYLES*/
+/*positions footer and fixes in place for all pages. NB: custom colour used (not on 'Brackets' editor*/
+.footer{
+    background-color:dimgrey; 
+    height: 20px;
+    min-width: 100%;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    margin-top: 40px;
+}
+
+/*END FOOTER STYLES*/
+
+/*HOME PAGE STYLES*/
+
+.hometext{
+    position: center;
+    color: orangered;
+    left: 35%;
+    margin-top: 100px;
+}   
+
+/*creates separate section for intro text*/
+.intro {
+    background-color: white;
+    overflow: hidden;
+    margin: 15px;
+    max-width: 100%;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 90px;
+    margin-top: -40px;
+}
+
+/*styles home page tabs*/
+.home-files a{
+    color:black;
+    float: center;
+    width: 30%;
+    text-align: center;
+    text-decoration:none; 
+    padding: 50px 80px;
+    font-size: 150%;
+    background-color: gainsboro;
+    box-sizing: border-box;
+    margin: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    
+}
+/*changes home page tab style when mouse hovered or clicked on*/
+.home-files a:hover{
+    background-color:orangered;
+    color:white;
+}
+
+
+/*END HOMEPAGE STYLES*/
+
+
+/*GAME PAGE STYLES*/
+
+::selection{
+    color: #fff;
+    background: #007bff;
+}
+.container1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#image-container {
+    padding-top: 10px;
+    max-width: 80%;
+    height: auto;
+    /* change this to align image up/down */
+    margin-left: 10%;
+}
+
+.start_btn,
+.info_box,
+.quiz_box,
+.result_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.info_box.activeInfo,
+.quiz_box.activeQuiz,
+.result_box.activeResult{
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.start_btn button{
+    font-size: 25px;
+    font-weight: 500;
+    color: #007bff;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.info_box{
+    width: 1000px;
+    height: auto;
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.info_box .info-title{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.info_box .info-list{
+    padding: 15px 30px;
+}
+
+.info_box .info-list .info{
+    margin: 5px 0;
+    font-size: 17px;
+}
+
+.info_box .info-list .info span{
+    font-weight: 600;
+    color: #007bff;
+}
+.info_box .buttons{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;
+    border-top: 1px solid lightgrey;
+}
+
+.info_box .buttons button{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.quiz_box{
+    width: 1000px;
+    height: 825px;
+    margin: 50px;
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.quiz_box header{
+    position: relative;
+    z-index: 2;
+    height: 400px;
+    padding: 0 30px;
+    background: #fff;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz_box header .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+section{
+    padding: 25px 30px 20px 30px;
+    background: #fff;
+}
+
+section .que_text{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+section .option_list{
+    padding: 10px 0px;
+    display: block;   
+}
+
+section .option_list .option{
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 17px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .option_list .option:last-child{
+    margin-bottom: 0px;
+}
+
+section .option_list .option:hover{
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+}
+
+section .option_list .option.correct{
+    color: #155724;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+section .option_list .option.incorrect{
+    color: #721c24;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+section .option_list .option.disabled{
+    pointer-events: none;
+}
+
+section .option_list .option .icon{
+    height: 26px;
+    width: 26px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    line-height: 24px;
+}
+.option_list .option .icon.tick{
+    color: #23903c;
+    border-color: #23903c;
+    background: #d4edda;
+}
+
+.option_list .option .icon.cross{
+    color: #a42834;
+    background: #f8d7da;
+    border-color: #a42834;
+}
+
+footer{
+    height: 20px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .total_que span{
+    display: flex;
+    user-select: none;
+}
+
+footer .total_que span p{
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+footer .total_que span p:first-child{
+    padding-left: 0px;
+}
+
+footer button{
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    background: #007bff;
+    border: 1px solid #007bff;
+    line-height: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+}
+
+footer button:hover{
+    background: #0263ca;
+}
+
+footer button.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.result_box{
+    background: #fff;
+    border-radius: 5px;
+    display: flex;
+    padding: 25px 30px;
+    width: 450px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.result_box .icon{
+    font-size: 100px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.result_box .complete_text{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.result_box .score_text span{
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.result_box .score_text span p{
+    padding: 0 4px;
+    font-weight: 600;
+}
+
+.result_box .buttons{
+    display: flex;
+    margin: 20px 0;
+}
+
+.result_box .buttons button{
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.buttons button.restart{
+    color: #fff;
+    background: #007bff;
+}
+
+.buttons button.restart:hover{
+    background: #0263ca;
+}
+
+.buttons button.quit{
+    color: #007bff;
+    background: #fff;
+}
+
+.buttons button.quit:hover{
+    color: #fff;
+    background: #007bff;
+}
+/*END GAME PAGE STYLES*/
+
+
+
+/*PROFILE PAGE STYLES*/
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    display: flex;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .wrapper .left {
+    width: 35%;
+    background: linear-gradient(to right, orangered, #FF4747);
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .wrapper .left img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .wrapper .left h4 {
+    margin-bottom: 10px;
+  }
+  
+  .wrapper .left p {
+    font-size: 12px;
+  }
+  
+  .wrapper .right {
+    width: 65%;
+    background: #fff;
+    padding: 30px 25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .wrapper .right .info,
+  .wrapper .right .points {
+    margin-bottom: 25px;
+  }
+  
+  .wrapper .right .info h3,
+  .wrapper .right .points h3 {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #FF4747;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+  
+  .wrapper .right .info_data,
+  .wrapper .right .points_data {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .wrapper .right .info_data .data,
+  .wrapper .right .points_data .data {
+    width: 45%;
+  }
+  
+  .wrapper .right .info_data .data h4,
+  .wrapper .right .points_data .data h4 {
+    color: #461c1c;
+    margin-bottom: 5px;
+  }
+  
+  .wrapper .right .info_data .data p,
+  .wrapper .right .points_data .data p {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #d49191;
+  }
+  
+  .wrapper .social_media ul {
+    display: flex;
+    font-size: 0px;
+  }
+  
+  .wrapper .social_media ul li {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to right, orangered, #FF4747);
+    margin-right: 10px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 45px;
+  }
+  
+  .wrapper .social_media ul li a {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+  }
+
+
+/*END PROFILE PAGE STYLES*/
+
+
+/*SIGN IN PAGE STYLES*/
+.hero{ 
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.4)), url(newspaper.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.header-title{
+    position: relative;
+    text-align: center;
+}
+.form-box{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+}
+.button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff00001f;
+    border-radius: 30px
+}
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, orangered, #FF4747);
+    border-radius: 30px;
+    transition: .5s;
+}
+.input-group{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, orangered, #FF4747);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+.check-box{
+    margin: 30px 10px 30px 0;
+}
+#login{
+    left: 50px;
+}
+#register{
+    left: 450px;
+}
+
+/*END SIGN IN PAGE STYLES*/
+
+
+
+/* GUIDE PAGE STYLES */
+
+.boxed {
+  border: 3px solid orangered;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.guide_text{
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+
+.guide_img {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.guide_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    background-color:lightgray;
+    color:white;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size:15px;
+}
+
+#topBtn:hover {
+    background-color: orangered;
+}
+
+/* END GUIDE PAGE STYLES */
